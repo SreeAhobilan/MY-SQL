@@ -1,0 +1,47 @@
+//DAY-36 MY SQL TASK 
+Q.The Following are the tables has to be in your database & model deisgn:
+users
+codekata
+attendance
+topics
+tasks
+company_drives
+mentors
+students_activated_courses
+courses
+
+The following are the queries need to be executed
+
+1. Create tables for the above list given
+
+ANS: CREATE TABLE data(users varchar(30),codekata integer,attendance integer,topics integer,tasks integer,company_drives integer,mentors varchar(30),students_activated_courses integer,courses varchar(30));
+
+2. insert at least 5 rows of values in each table
+
+ANS:INSERT INTO data 
+(users,codekata,attendance,topics,tasks,company_drives,mentors,students_activated_courses,courses) 
+VALUES("kamal",50,90,20,30,1,"suman",1,"MERN Stack");
+("harish",20,50,40,29,3,"lavish",1,"MEAN Stack");
+("irshad",100,33,36,30,5,"sai mohan",1,"LAMP Stack");
+("lokesh",88,45,66,31,7,"mariappan",1,"MERN Stack");
+("kaja",76,22,98,15,10,"raghav kumar",1,"MEAN Stack");
+
+3. get number problems solved in codekata by combining the users
+
+ANS:SELECT sum(codekata) as TOtal FROM data;
+
+4. display the no of company drives attended by a user
+
+ANS:SELECT users,company_drives FROM data;
+
+5. combine and display students_activated_courses and courses for a specific user groping them based on the course
+
+ANS:SELECT courses,count(courses)as users,students_activated_courses FROM data GROUP BY courses ORDER BY courses DESC;
+
+6. list all the mentors
+
+ANS:SELECT mentors FROM data;
+
+7. list the number of students that are assigned for a mentor
+
+ANS:SELECT mentors,count(users)as students FROM data GROUP BY mentors ORDER BY students;
